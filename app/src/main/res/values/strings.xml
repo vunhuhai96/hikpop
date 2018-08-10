@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MyKpop</string>
     <string name="tin_noi_bat">Tin nổi bật</string>
+    <string name="danh_sach_nhom_nhac_nam">Danh sách nhóm nhạc nam</string>
+    <string name="danh_sach_nhom_nhac_nu">Danh sách nhóm nhạc nữ</string>
+    <string name="danh_sach_nghe_si_solo">Danh sách nghệ sĩ solo</string>
 </resources>

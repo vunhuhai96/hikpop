@@ -1,5 +1,6 @@
 package com.ckd.two.mykpop.view.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -16,6 +17,8 @@ import com.ckd.two.mykpop.R;
 import com.ckd.two.mykpop.adapter.HomeRecycleAdapter;
 import com.ckd.two.mykpop.adapter.HomeViewpagerAdapter;
 import com.ckd.two.mykpop.model.ItemHomePager;
+import com.ckd.two.mykpop.view.activity.DetailsActivity;
+import com.ckd.two.mykpop.view.activity.ListIdolActivity;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,7 +30,7 @@ import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
     private View view;
     private ViewPager viewPager;
     private RecyclerView recyclerViewBoy;
@@ -43,7 +46,7 @@ public class HomeFragment extends Fragment {
     private int page = 0;
     private DatabaseReference mReference;
 
-    public HomeFragment(){
+    public HomeFragment() {
         handler = new Handler();
     }
 
@@ -225,6 +228,9 @@ public class HomeFragment extends Fragment {
         recyclerViewGirl = (RecyclerView) view.findViewById(R.id.recycle_girl);
         recyclerViewSolo = (RecyclerView) view.findViewById(R.id.recycle_solo);
         indicator = (CircleIndicator) view.findViewById(R.id.circle_indicator);
+        view.findViewById(R.id.tv_show_more_boy).setOnClickListener(this);
+        view.findViewById(R.id.tv_show_more_girl).setOnClickListener(this);
+        view.findViewById(R.id.tv_show_more_solo).setOnClickListener(this);
     }
 
     @Override
@@ -238,5 +244,27 @@ public class HomeFragment extends Fragment {
     public void onPause() {
         super.onPause();
         handler.removeCallbacks(runnable);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_show_more_boy:
+                Intent intent = new Intent(getContext(), ListIdolActivity.class);
+                intent.putExtra("idol","boys");
+                startActivity(intent);
+                break;
+            case R.id.tv_show_more_girl:
+                Intent intent1 = new Intent(getContext(), ListIdolActivity.class);
+                intent1.putExtra("idol","girls");
+                startActivity(intent1);
+                break;
+            case R.id.tv_show_more_solo:
+                Intent intent2 = new Intent(getContext(), ListIdolActivity.class);
+                intent2.putExtra("idol","solo");
+                startActivity(intent2);
+                break;
+
+        }
     }
 }
