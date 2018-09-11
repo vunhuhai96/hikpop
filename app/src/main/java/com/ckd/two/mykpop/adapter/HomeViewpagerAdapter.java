@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.ckd.two.mykpop.R;
 import com.ckd.two.mykpop.model.ItemHomePager;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -54,7 +55,8 @@ public class HomeViewpagerAdapter extends PagerAdapter {
 
         ItemHomePager itemHomePager = list.get(position);
 
-        Glide.with(context).load(itemHomePager.getImage()).into(imageView);
+        //Glide.with(context).load(itemHomePager.getImage()).into(imageView);
+        Picasso.get().load(itemHomePager.getImage()).into(imageView);
         textView.setText(itemHomePager.getName());
 
         // ThÃªm itemView vÃ o viewPager

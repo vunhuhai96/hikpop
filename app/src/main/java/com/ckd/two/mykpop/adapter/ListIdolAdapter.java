@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.ckd.two.mykpop.R;
 import com.ckd.two.mykpop.model.ItemHomePager;
 import com.ckd.two.mykpop.view.activity.DetailsActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -40,7 +41,8 @@ public class ListIdolAdapter extends RecyclerView.Adapter<ListIdolAdapter.ViewHo
     public void onBindViewHolder(@NonNull ListIdolAdapter.ViewHolder holder, int position) {
         ItemHomePager itemHomePager = list.get(position);
 
-        Glide.with(context).load(itemHomePager.getImage()).into(holder.imageView);
+        //Glide.with(context).load(itemHomePager.getImage()).into(holder.imageView);
+        Picasso.get().load(itemHomePager.getImage()).into(holder.imageView);
         holder.textView.setText(itemHomePager.getName());
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override

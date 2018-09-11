@@ -30,7 +30,19 @@
                         android:layout_height="?attr/actionBarSize"
                         android:padding="16dp"
                         android:id="@+id/btn_menu"
-                        android:src="@drawable/ic_menu"/>
+                        android:src="@drawable/ic_menu"/>ư
+
+                    <TextView android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"/>
+
+                    <ImageView android:layout_width="?attr/actionBarSize"
+                        android:layout_height="?attr/actionBarSize"
+                        android:padding="16dp"
+                        android:id="@+id/btn_noti"
+                        android:src="@drawable/ic_noti"/>
+
+
 
                 </TableRow>
 
@@ -48,7 +60,7 @@
                 android:id="@+id/home_tab_layout"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorBackground"
+                android:background="@drawable/tab_view"
                 app:tabGravity="fill"
                 app:tabMode="fixed"
                 app:tabTextColor="@android:color/white" />
@@ -56,12 +68,10 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
-    <LinearLayout
+    <include layout="@layout/drawer_menu"
+        android:layout_gravity="start"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@android:color/white"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"/>
 
-    </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
